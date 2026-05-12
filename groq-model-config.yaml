@@ -1,0 +1,12 @@
+apiVersion: kagent.dev/v1alpha2
+kind: ModelConfig
+metadata:
+  name: groq-gpt-oss-20b
+  namespace: kagent
+spec:
+  provider: OpenAI
+  model: openai/gpt-oss-20b
+  apiKeySecret: kagent-groq
+  apiKeySecretKey: GROQ_API_KEY
+  openAI:
+    baseUrl: https://api.groq.com/openai/v1
