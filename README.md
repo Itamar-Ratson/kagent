@@ -7,8 +7,6 @@ Combines the [official quickstart](https://kagent.dev/docs/kagent/getting-starte
 `kind`, `kubectl`, `helm`, and the `kagent` CLI:
 
 ```bash
-brew install kagent
-# or
 curl https://raw.githubusercontent.com/kagent-dev/kagent/refs/heads/main/scripts/get-kagent | bash
 ```
 
