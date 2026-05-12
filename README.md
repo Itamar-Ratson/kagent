@@ -55,13 +55,15 @@ Three files in this repo do this declaratively:
 
 | File | Purpose |
 |---|---|
-| `groq-secret.yaml` | Holds `GROQ_API_KEY` in the `kagent` namespace (gitignored via `*-secret.yaml`) |
+| `groq-secret.yaml` | Holds `GROQ_API_KEY` in the `kagent` namespace (gitignored via `*secret*`). Copy from `groq-secret.example.yaml` and fill in your key. |
 | `groq-model-config.yaml` | `ModelConfig` using `provider: OpenAI` with `baseUrl: https://api.groq.com/openai/v1` (Groq is OpenAI-compatible). Defaults to `openai/gpt-oss-20b`. |
 | `agent-modelconfig-patch.yaml` | Minimal merge patch that points `spec.declarative.modelConfig` at `groq-gpt-oss-20b` |
 
-Before applying, put your real key in `groq-secret.yaml` (under `stringData.GROQ_API_KEY`), then:
+Create your local secret file from the example, then apply:
 
 ```bash
+cp groq-secret.example.yaml groq-secret.yaml
+# edit groq-secret.yaml and replace <your-groq-api-key>
 kubectl apply -f groq-secret.yaml -f groq-model-config.yaml
 kubectl patch agent my-first-k8s-agent -n kagent \
   --type=merge --patch-file=agent-modelconfig-patch.yaml

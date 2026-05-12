@@ -7,3 +7,6 @@
 # Re-exclude anything that looks like it holds secrets, even if it matched the
 # whitelist above. Later patterns override earlier ones.
 *secret*
+
+# But allow `.example.yaml` files (placeholder-only by convention).
+!*.example.yaml
